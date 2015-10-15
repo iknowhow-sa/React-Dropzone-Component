@@ -89,6 +89,10 @@ DropzoneComponent = React.createClass({
         }
     },
 
+    componentWillUpdate: function() {
+        this.dropzone.options.params = this.props.djsConfig.params;
+    },
+
     /**
      * React 'render'
      */
