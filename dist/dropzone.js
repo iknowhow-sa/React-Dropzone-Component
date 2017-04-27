@@ -8,6 +8,7 @@
 var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null),
     Helpers = require('./helpers'),
     IconComponent = require('./icon'),
+    ReactDOM = (typeof window !== "undefined" ? window['ReactDOM'] : typeof global !== "undefined" ? global['ReactDOM'] : null),
     Dropzone, DropzoneComponent;
 
 DropzoneComponent = React.createClass({displayName: "DropzoneComponent",
@@ -48,7 +49,7 @@ DropzoneComponent = React.createClass({displayName: "DropzoneComponent",
             console.info('Neither postUrl nor a "drop" eventHandler specified, the React-Dropzone component might misbehave.');
         }
 
-        this.dropzone = new Dropzone(React.findDOMNode(self), options);
+        this.dropzone = new Dropzone(ReactDOM.findDOMNode(self), options);
         this.setupEvents();
     },
 
@@ -90,7 +91,7 @@ DropzoneComponent = React.createClass({displayName: "DropzoneComponent",
         this.queueDestroy = false;
 
         if (!this.dropzone) {
-            this.dropzone = new Dropzone(React.findDOMNode(this), this.getDjsConfig());
+            this.dropzone = new Dropzone(ReactDOM.findDOMNode(this), this.getDjsConfig());
         }
     },
 
